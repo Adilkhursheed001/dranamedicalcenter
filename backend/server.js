@@ -10,14 +10,20 @@ const adminRoutes = require('./routes/admin');
 
 const app = express();
 
-app.use(cors({ origin: process.env.CORS_ORIGIN || '*' }));
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    process.env.FRONTEND_URL,
+  ].filter(Boolean),
+  credentials: true,
+}));
 app.use(express.json());
 
 // Routes
 app.use('/login', authRoutes);
 app.use('/auth', authRoutes);       // alias so frontend /auth/admin-login works
 app.use('/doctor', doctorRoutes);
-app.use('/', appointmentRoutes);
+app.use('/', appointmentRoutes)
 app.use('/admin', adminRoutes);
 
 // Health check
