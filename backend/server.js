@@ -13,6 +13,9 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:3000',
+    'https://dranamedicalcenter.com',
+    'https://www.dranamedicalcenter.com',
+    'https://dranamedicalcenter.vercel.app',
     process.env.FRONTEND_URL,
   ].filter(Boolean),
   credentials: true,
