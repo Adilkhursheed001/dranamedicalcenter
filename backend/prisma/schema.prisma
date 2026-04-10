@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Patient {
+  id           String        @id @default(uuid())
+  name         String        @default("")
+  phone        String        @unique
+  createdAt    DateTime      @default(now())
+  appointments Appointment[]
+}
+
+model Appointment {
+  id         String            @id @default(uuid())
+  patientId  String
+  patient    Patient           @relation(fields: [patientId], references: [id])
+  name       String            @default("") // denormalized for quick access
+  phone      String            @default("") // denormalized for quick access
+  date       String            @default("") // "YYYY-MM-DD"
+  time       String            @default("") // "HH:MM AM/PM"
+  status     AppointmentStatus @default(BOOKED)
+  paymentId  String            @default("")
+  amountPaid Int               @default(0)
+  notes      String            @default("")
+  createdAt  DateTime          @default(now())
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+enum AppointmentStatus {
+  BOOKED
+  CANCELLED
+  COMPLETED
+}

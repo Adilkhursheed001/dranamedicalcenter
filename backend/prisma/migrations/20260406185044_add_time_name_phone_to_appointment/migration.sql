@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Appointment" ADD COLUMN     "name" TEXT NOT NULL DEFAULT '',
+ADD COLUMN     "phone" TEXT NOT NULL DEFAULT '',
+ADD COLUMN     "time" TEXT NOT NULL DEFAULT '';

@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Appointment" ADD COLUMN     "amountPaid" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "date" TEXT NOT NULL DEFAULT '',
+ADD COLUMN     "paymentId" TEXT NOT NULL DEFAULT '';
