@@ -102,7 +102,7 @@ export default function Home() {
 
           <div className="hero-left">
             <p className="doctor-bio">
-              <b>Dr S. Parveen (MBBS, MS – Obstetrics &amp; Gynecology)</b> brings over 12 years of
+              <b>Dr S. Parveen (Consultant Gynecologist and Physician)</b> brings over 13 years of
               expertise to her practice. She provides comprehensive care for pregnancy, maternal
               health, and complex gynecological issues.
             </p>
